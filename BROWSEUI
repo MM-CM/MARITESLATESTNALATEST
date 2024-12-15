@@ -172,7 +172,7 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     if (bookGenre.equalsIgnoreCase(selectedGenre)) {
         String availability = isAvailable ? "Available" : "Checked Out";
         model.addRow(new Object[]{
-            book[0], book[1], book[2], book[3], availability, book[5], book[6], book[7], book[8]
+            book[0], book[1], book[2], book[3], availability, book[5], book[6], book[7], book[8], book[9]
         });
         found = true;
     }
