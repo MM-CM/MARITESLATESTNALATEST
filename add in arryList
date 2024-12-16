@@ -1,0 +1,40 @@
+public void quickSortTransactionsById() {
+          ArrayList<NodeTransac> bune = this.getTransactionRecords();
+     quickSort(bune,0, bune.size() - 1);
+      System.out.println("Nag sosort namn bading");// Initial call to QuickSort
+}
+
+// QuickSort helper method
+private void quickSort(ArrayList<NodeTransac> transactions, int low, int high) {
+    if (low < high) {
+        // Find the pivot index
+        int pivotIndex = partition(transactions, low, high);
+
+        // Recursively sort the two halves
+        quickSort(transactions, low, pivotIndex - 1); // Left half
+        quickSort(transactions, pivotIndex + 1, high); // Right half
+    }
+}
+
+// Partition method
+private int partition(ArrayList<NodeTransac> transactions, int low, int high) {
+    String pivot = transactions.get(high).getID();
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (transactions.get(j).getID().compareTo(pivot) < 0) {
+            i++;
+            swap(transactions, i, j);
+        }
+    }
+
+    swap(transactions, i + 1, high);
+    return i + 1;
+}
+
+// Swap method
+private void swap(ArrayList<NodeTransac> transactions, int i, int j) {
+    NodeTransac temp = transactions.get(i);
+    transactions.set(i, transactions.get(j));
+    transactions.set(j, temp);
+}
